@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div>
+<div class="row">
+	<div class="col-md-4 col-md-offset-4" style="margin-top: 5px">
+	 <div class="panel panel-primary">
+	 	<div class="panel-heading">
+	 		<h3 class="panel-title">Recruit A Fellow/Staff</h3>
+	 	</div>
+	 	<div class="panel-body">
+	 		<form class="col s12" action="{{url_for('addEmployee')}}" method="post">
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <input id="last_name" type="text" name="firstName" class="validate">
+		          <label for="last_name">First Name</label>
+		        </div>
+		      </div>
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <input id="other_name" type="text" name="otherNames" class="validate">
+		          <label for="other_name">Other Names</label>
+		        </div>
+		      </div>
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <select class="form-control" name="designation" required>
+		          	<option value="">Select Designation</option>
+		          	<option value="Fellow">Fellow</option>
+		          	<option value="Staff">Non-fellow</option>
+		          </select>
+		        </div>
+		      </div>
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <select class="form-control" name="assignRoom" required>
+		          	<option value="No">Don't Assign Room</option>
+		          	<option value="YES">Assign Room</option>
+		          </select>
+		        </div>
+		      </div>
+		      <div>
+		      	<div class="col s6">
+		      		<button class="btn waves-effect waves-light" type="submit" >Submit
+                       <i class="material-icons right">send</i>
+                   </button>
+		      	</div>
+		      </div>
+		      <div>
+		      	{% if success %}
+                   <p style="margin-top: 70px" class="alert alert-success">{{ success }}</p>
+                {% endif %}
+                {% if error %}
+                   <p style="margin-top: 70px" class="alert alert-danger"><strong>Error:</strong> {{ error }}
+                {% endif %}</p>
+		      </div>
+            </form>
+	 	</div>
+	 </div>
+	</div>
+  </div>
+        
+</div>
+{% endblock %}
